@@ -82,14 +82,14 @@ void runProcess() {
   Serial.println("Enter pH value (0.0 - 14.0):");
 
   while (Serial.available() == 0) {
-    if (checkStopCommand()) return; // Allow stopping
+    if (checkStopCommand()) return;
   }
 
   float pHState = Serial.parseFloat();
 
   if (pHState < 0.0 || pHState > 14.0) {
     Serial.println("Invalid pH value! Must be between 0.0 and 14.0. Please enter again.");
-    goto get_pH_value; // Jump back to re-enter the pH value
+    goto get_pH_value; 
   }
 
   Serial.print("pH Value: ");
